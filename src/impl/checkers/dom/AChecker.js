@@ -11,18 +11,17 @@ class AChecker extends NodeChecker {
   static expects = (node) => (node.nodeName.toUpperCase() === 'A');
 
   execute(node) {
-
     if (!node.hasAttribute('href')) {
       this.detail.moreInfo = 'No HREF present';
-      return new ErrorResult(node, this.detail);
+      return new ErrorResult(node, this.detail, 'Add a href tag to your <a> e.g. <a href="#AboutMe"></a>');
     }
     if (node.getAttribute('href') === '' || node.getAttribute('href') === '#') {
       this.detail.moreInfo = 'HREF should go to an anchor on the page. \'#\' is not one of these!';
-      return new ErrorResult(node, this.detail);
+      return new ErrorResult(node, this.detail, 'Add a meaningful name after the #. e.g. #AboutMe');
     }
     if (node.getAttribute('href').indexOf('javascript:') >= 0) {
-      this.detail.moreInfo = 'Executing javascript on a HREF is considered bad practice. Consider a button instead.';
-      return new ErrorResult(node, this.detail);
+      this.detail.moreInfo = 'Executing javascript on a HREF is considered bad practice';
+      return new ErrorResult(node, this.detail, 'Change from using an <a> to a <button>');
     }
 
     return new SuccessResult(node, this.detail);

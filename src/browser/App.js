@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Runner from '../core/Runner';
 import '../spec/Standard';
-import Popup from './components/popup';
-import A11YInlineMessages from './components/A11YInlineMessages/index'
+import Popup from './components/Popup';
+import A11YInlineMessages from './components/A11YInlineMessages/index';
 
 class App extends Component {
 
@@ -10,15 +10,21 @@ class App extends Component {
     super(props);
     const results = new Runner().run();
     let messages = results.filter((msg) => msg.type === 'ERROR' || msg.type === 'WARNING');
-    messages.sort((a, b) => (a === 'ERROR' ? 1 : -1));
-    this.state = { messages: messages };
+    messages.sort((a, b) => (a === 'ERROR' ? -1 : 1));
+    this.state = { messages: messages, hash: window.location.hash };
+  }
+
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      this.setState({ hash: window.location.hash })
+    });
   }
 
   render() {
     return (
       <div>
         <Popup messages={this.state.messages} />
-        <A11YInlineMessages messages={this.state.messages} />
+        <A11YInlineMessages hash={this.state.hash} messages={this.state.messages} />
       </div>
     );
   }
