@@ -16,14 +16,16 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener('hashchange', () => {
-      this.setState({ hash: window.location.hash })
+      this.setState({ hash: window.location.hash });
+      window.scrollTo(window.scrollX, window.scrollY - 100);
+
     });
   }
 
   render() {
     return (
       <div>
-        <Popup messages={this.state.messages} />
+        <Popup hash={this.state.hash} messages={this.state.messages} />
         <A11YInlineMessages hash={this.state.hash} messages={this.state.messages} />
       </div>
     );

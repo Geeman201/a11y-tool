@@ -57,20 +57,11 @@ const A11YDetail = styled.div`
 class A11YItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      expanded: false
-    }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     //  Component should only update when expanding
-    return this.state.expanded !== nextState.expanded;
-  }
-
-  toggle() {
-    this.setState((prevState) => {
-      return { expanded: !prevState.expanded }
-    })
+    return this.props.expanded !== nextProps.expanded;
   }
 
   moreInfo(e) {
@@ -86,9 +77,9 @@ class A11YItem extends Component {
   render() {
     const item = this.props.item;
     return (
-      <A11YItemWrapper href={'#' + item.id} item={item} onClick={this.toggle.bind(this)}>
+      <A11YItemWrapper href={'#' + item.id} item={item}>
         <A11YTitle>{item.detail.name}</A11YTitle>
-        <A11YDetail display={this.state.expanded}>
+        <A11YDetail display={this.props.expanded}>
           {item.detail.moreInfo}
           <Button onClick={this.displayHTML.bind(this)}>Print to console offending HTML</Button>
           <Button onClick={this.moreInfo.bind(this)}>Learn More</Button>

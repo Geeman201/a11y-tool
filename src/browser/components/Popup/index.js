@@ -6,13 +6,13 @@ import Tab from '../Tabs/Tab';
 import A11YItem from '../A11YItem';
 import SettingsTab from '../SettingsTab';
 
-const Popup = ({ messages }) => (
+const Popup = ({ messages, hash }) => (
   <PopupWrapper>
     <Header>A11Y Tool</Header>
     <Tabs>
       <Tab label="Report">
         {messages.map((item, index) => (
-          <A11YItem key={index} href={'#' + item.id} item={item}>{item.detail.name}</A11YItem>
+          <A11YItem key={index} href={'#' + item.id} expanded={hash.indexOf(item.id) >= 0} item={item}>{item.detail.name}</A11YItem>
         ))}
       </Tab>
       <Tab label="Other">

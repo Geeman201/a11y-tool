@@ -12,6 +12,7 @@ const Button = styled.button`
     background-color: rgba(255, 255, 255, 0.2);
     color: #CCC;
     margin-top: 5px;
+    box-shadow: none;
   }
 `;
 

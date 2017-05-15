@@ -8,7 +8,7 @@ const A11YInlineMessage = styled.a`
     position:absolute;
     left: ${props => coords(props.item.node).left - 5 + 'px'};
     top: ${props => coords(props.item.node).top + 35 + 'px'};
-    display: ${props => props.display ? 'block': 'none'};
+    visibility: ${props => props.display ? 'visible' : 'hidden'};
     background-color: #4A444A;
     color: #F4EB49;
     font-family: Consolas;
@@ -55,7 +55,8 @@ const coords = (node) => (
 const A11YInlineMessages = ({ messages, hash }) => (
   <div>
     {messages.map((message) => (
-      <A11YInlineMessage id={message.id} display={hash.indexOf(message.id) >= 0|| hash.indexOf('*') >=0} item={message}>{message.detail.name}</A11YInlineMessage>
+      <A11YInlineMessage id={message.id} display={hash.indexOf(message.id) >= 0 || hash.indexOf('*') >= 0}
+                         item={message}>{message.detail.name}</A11YInlineMessage>
     ))}
   </div>
 );

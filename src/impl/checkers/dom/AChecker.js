@@ -5,7 +5,10 @@ import { ErrorResult, SuccessResult } from '../../../core/results/Results';
 class AChecker extends NodeChecker {
 
   static detail = new Detail(
-    { name: 'Valid HREF attribute on <a> tag', helpUrl: 'https://geeman201.github.io/geemans-a11y-guide/#/navigation/links' }
+    {
+      name: 'Valid HREF attribute on <a> tag',
+      helpUrl: 'https://geeman201.github.io/geemans-a11y-guide/#/navigation/links'
+    }
   );
 
   static expects = (node) => (node.nodeName.toUpperCase() === 'A');
