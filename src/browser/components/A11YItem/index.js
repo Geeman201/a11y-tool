@@ -52,6 +52,21 @@ const A11YDetail = styled.div`
   }
 `;
 
+//  language=SCSS
+const A11YMoreInfo = styled.button`
+  & {
+    padding: 2px 10px;
+    font-size: 12px;
+    font-family: Consolas;
+    display: block;
+    border: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #CCC;
+    margin-top: 5px;
+  }
+`;
+
 class A11YItem extends Component {
   constructor(props) {
     super(props);
@@ -71,6 +86,22 @@ class A11YItem extends Component {
     })
   }
 
+  moreInfo(e) {
+    e.stopPropagation();
+    window.open(this.props.item.detail.helpUrl, '_blank')
+  }
+
+  displayHTML(e) {
+    e.stopPropagation();
+    var tmp = document.createElement("div");
+    tmp.appendChild(this.props.item.node.cloneNode(true));
+    console.group(this.props.item.detail.name);
+    console.log(`Resources around this topic can be found at `, this.props.item.detail.helpUrl);
+    console.log('Right click node below & \'Reveal in elements pane\' for further context');
+    console.log(this.props.item.node);
+    console.groupEnd();
+  }
+
   render() {
     const item = this.props.item;
     return (
@@ -78,6 +109,8 @@ class A11YItem extends Component {
         <A11YTitle>{item.detail.name}</A11YTitle>
         <A11YDetail display={this.state.expanded}>
           {item.detail.moreInfo}
+          <A11YMoreInfo onClick={this.displayHTML.bind(this)}>Print to console offending HTML</A11YMoreInfo>
+          <A11YMoreInfo onClick={this.moreInfo.bind(this)}>Learn More</A11YMoreInfo>
         </A11YDetail>
       </A11YItemWrapper>
     )
