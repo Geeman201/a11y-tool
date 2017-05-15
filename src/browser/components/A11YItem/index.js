@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
+import ConsoleHelpers from '../../../core/ConsoleHelpers';
 
 //  language=SCSS
 const A11YItemWrapper = styled.a`
@@ -34,7 +35,7 @@ const colourBorder = (status) => {
     default:
       return 'rgba(0,0,0,1)'
   }
-}
+};
 
 //  language=SCSS
 const A11YTitle = styled.div`
@@ -79,16 +80,7 @@ class A11YItem extends Component {
 
   displayHTML(e) {
     e.stopPropagation();
-    var tmp = document.createElement("div");
-    tmp.appendChild(this.props.item.node.cloneNode(true));
-    console.group(`${this.props.item.detail.name} | ${this.props.item.detail.moreInfo}`);
-    console.group('Recommended Remediation work');
-    console.log(this.props.item.remediation);
-    console.log(`Further resources can be found at `, this.props.item.detail.helpUrl);
-    console.groupEnd();
-    console.log('Right click node below & \'Reveal in elements pane\' for further context');
-    console.log(this.props.item.node);
-    console.groupEnd();
+    ConsoleHelpers.printResult(this.props.item);
   }
 
   render() {

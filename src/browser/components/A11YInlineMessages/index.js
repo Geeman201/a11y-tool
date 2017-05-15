@@ -55,7 +55,7 @@ const coords = (node) => (
 const A11YInlineMessages = ({ messages, hash }) => (
   <div>
     {messages.map((message) => (
-      <A11YInlineMessage id={message.id} display={hash.indexOf(message.id) >= 0} item={message}>{message.detail.name}</A11YInlineMessage>
+      <A11YInlineMessage id={message.id} display={hash.indexOf(message.id) >= 0|| hash.indexOf('*') >=0} item={message}>{message.detail.name}</A11YInlineMessage>
     ))}
   </div>
 );

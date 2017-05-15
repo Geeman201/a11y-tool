@@ -4,15 +4,13 @@ import Detail from '../detail/Detail';
 
 export class ErrorResult extends Result {
   constructor(node: HTMLElement, detail: Detail, remediation) {
-    super('ERROR', node, detail);
-    this.remediation = remediation;
+    super('ERROR', node, detail, remediation);
   }
 }
 
 export class WarnResult extends Result {
   constructor(node: HTMLElement, detail: Detail, remediation) {
-    super('WARNING', node, detail);
-    this.remediation = remediation;
+    super('WARNING', node, detail, remediation);
   }
 }
 
