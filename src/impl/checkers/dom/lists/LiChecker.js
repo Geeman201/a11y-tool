@@ -11,7 +11,7 @@ export default class LiChecker extends NodeChecker {
     }
   );
 
-  static expects = (node) => (node.nodeName.toUpperCase() === 'LI');
+  static expects = (node) => (node.tagName.toUpperCase() === 'LI');
 
   execute(node: HTMLElement) {
     if (this.hasNoParentUlOrOl(node) || !node.parentNode.getAttribute('role') === 'list') {

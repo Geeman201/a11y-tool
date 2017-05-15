@@ -2,7 +2,7 @@ import NodeChecker from '../../../core/checkers/NodeChecker';
 import Detail from '../../../core/detail/Detail';
 import { ErrorResult, SuccessResult } from '../../../core/results/Results';
 
-class AChecker extends NodeChecker {
+class HrefChecker extends NodeChecker {
 
   static detail = new Detail(
     {
@@ -11,7 +11,7 @@ class AChecker extends NodeChecker {
     }
   );
 
-  static expects = (node) => (node.nodeName.toUpperCase() === 'A');
+  static expects = (node) => (node.tagName.toUpperCase() === 'A');
 
   execute(node) {
     if (!node.hasAttribute('href')) {
@@ -23,7 +23,7 @@ class AChecker extends NodeChecker {
       return new ErrorResult(node, this.detail, 'Add a meaningful name after the #. e.g. #AboutMe');
     }
     if (node.getAttribute('href').indexOf('javascript:') >= 0) {
-      this.detail.moreInfo = 'Executing javascript on a HREF is considered bad practice';
+      this.detail.moreInfo = 'Executing javascript through a HREF is considered bad practice';
       return new ErrorResult(node, this.detail, 'Change from using an <a> to a <button>');
     }
 
@@ -31,4 +31,4 @@ class AChecker extends NodeChecker {
   }
 }
 
-export default AChecker;
+export default HrefChecker;

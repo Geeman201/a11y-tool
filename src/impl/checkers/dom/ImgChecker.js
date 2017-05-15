@@ -11,7 +11,7 @@ export default class ImgChecker extends NodeChecker {
     }
   );
 
-  static expects = (node) => (node.nodeName.toUpperCase() === 'IMG');
+  static expects = (node) => (node.tagName.toUpperCase() === 'IMG');
 
   execute(node: HTMLElement) {
     const isAltPresent = node.hasAttribute('alt');
