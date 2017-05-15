@@ -1,6 +1,6 @@
 import NodeWorker from '../core/workers/NodeWorker';
-import AltChecker from '../impl/checkers/dom/AltChecker';
-import HrefChecker from '../impl/checkers/dom/HrefChecker';
+import ImgChecker from '../impl/checkers/dom/ImgChecker';
+import AChecker from '../impl/checkers/dom/AChecker';
 
-NodeWorker.register(new AltChecker());
-NodeWorker.register(new HrefChecker());
+NodeWorker.register(new ImgChecker());
+NodeWorker.register(new AChecker());

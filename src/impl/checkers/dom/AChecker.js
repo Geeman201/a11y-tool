@@ -2,7 +2,7 @@ import NodeChecker from '../../../core/checkers/NodeChecker';
 import Detail from '../../../core/detail/Detail';
 import { ErrorResult, SuccessResult } from '../../../core/results/Results';
 
-class HrefChecker extends NodeChecker {
+class AChecker extends NodeChecker {
 
   static detail = new Detail(
     { name: 'HREF attribute on A tags' }
@@ -15,4 +15,4 @@ class HrefChecker extends NodeChecker {
   }
 }
 
-export default HrefChecker;
+export default AChecker;
