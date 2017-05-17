@@ -1,15 +1,20 @@
 class Checker {
-
   constructor() {
-    this.validate(this.constructor.detail);
+    this.validateInstance(this.constructor.detail, this.execute);
+    //  Enables instance level use of methods
     this.detail = this.constructor.detail;
   }
 
-  validate(detail, expects) {
-    if (!detail) {
-      console.log(`${this.constructor.name} | ERROR: No detail given`);
-    }
+  validateInstance(detail, execute) {
+    this.validateExists(detail, 'No detail object');
+    this.validateExists(execute, 'No execute method');
   }
 
+  validateExists(item, error) {
+    if(!item) {
+      throw new Error(`${this.constructor.name} | ERROR: ` + error);
+    }
+  }
 }
+
 export default Checker;

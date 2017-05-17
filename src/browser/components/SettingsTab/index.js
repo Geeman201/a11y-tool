@@ -17,8 +17,8 @@ class SettingsTab extends Component {
   }
 
   printAll() {
+    console.clear();
     this.props.messages.forEach((message) => {
-      console.clear();
       ConsoleHelpers.printResult(message);
     });
   }

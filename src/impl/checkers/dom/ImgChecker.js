@@ -2,7 +2,7 @@ import NodeChecker from '../../../core/checkers/NodeChecker';
 import Detail from '../../../core/detail/Detail';
 import { SuccessResult, WarnResult } from '../../../core/results/Results';
 
-export default class ImgChecker extends NodeChecker {
+class ImgChecker extends NodeChecker {
 
   static detail = new Detail(
     {
@@ -32,3 +32,5 @@ export default class ImgChecker extends NodeChecker {
   }
 
 }
+
+export default new ImgChecker();

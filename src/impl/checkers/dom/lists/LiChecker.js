@@ -2,7 +2,7 @@ import NodeChecker from '../../../../core/checkers/NodeChecker';
 import Detail from '../../../../core/detail/Detail';
 import { ErrorResult, SuccessResult } from '../../../../core/results/Results';
 
-export default class LiChecker extends NodeChecker {
+class LiChecker extends NodeChecker {
 
   static detail = new Detail(
     {
@@ -27,3 +27,5 @@ export default class LiChecker extends NodeChecker {
   }
 
 }
+
+export default new LiChecker();

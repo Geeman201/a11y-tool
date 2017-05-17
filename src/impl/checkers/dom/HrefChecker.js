@@ -31,4 +31,4 @@ class HrefChecker extends NodeChecker {
   }
 }
 
-export default HrefChecker;
+export default new HrefChecker();

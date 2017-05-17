@@ -18,7 +18,6 @@ class App extends Component {
     window.addEventListener('hashchange', () => {
       this.setState({ hash: window.location.hash });
       window.scrollTo(window.scrollX, window.scrollY - 100);
-
     });
   }
 
