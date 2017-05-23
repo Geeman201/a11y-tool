@@ -7,6 +7,7 @@ class ImgChecker extends NodeChecker {
   static detail = new Detail(
     {
       name: 'Alt attribute present and correct on IMG\'s',
+      moreInfo: '<img> elements should have a meaningful alt attribute',
       helpUrl: 'https://geeman201.github.io/geemans-a11y-guide/#/content/images'
     }
   );

@@ -14,16 +14,34 @@
     Learn how to configure a non-root public URL by running `npm run build`.
   -->
   <title>React App</title>
+  <style>
+    .a {
+      background-color: #CCC;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
-<img src="index.html"/>
-<a>Oh boy</a>
+
 <div>
-  asdasd
+  <img src="index.html" title="Image with no alt" />
 </div>
 <div>
-  <li>asd</li>
+  <a>A link with no href </a>
 </div>
+<div>
+  <a href="javascript:void(0)">A link that executes javascript</a>
+</div>
+<div>
+  <li>A list item without a ul or dl</li>
+</div>
+
+<div class="a">
+  An Element with poor contrast
+</div>
+
+<button>Go</button>
+
 <div id="a11y-tool"></div>
 <!--
   This HTML file is a template.

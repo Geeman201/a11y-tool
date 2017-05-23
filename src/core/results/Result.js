@@ -8,7 +8,6 @@ class Result {
     this.detail = detail;
     this.remediation = remediation;
   }
-
 }
 
 export default Result;

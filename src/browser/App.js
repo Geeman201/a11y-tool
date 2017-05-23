@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Runner from '../core/Runner';
-import '../spec/Standard';
+import '../a11y-checker-pack/Standard';
 import Popup from './components/Popup';
 import A11YInlineMessages from './components/A11YInlineMessages/index';
 

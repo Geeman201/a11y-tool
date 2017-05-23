@@ -7,6 +7,7 @@ class HrefChecker extends NodeChecker {
   static detail = new Detail(
     {
       name: 'Valid HREF attribute on <a> tag',
+      moreInfo: '<a> tags should have a useful href attribute',
       helpUrl: 'https://geeman201.github.io/geemans-a11y-guide/#/navigation/links'
     }
   );
